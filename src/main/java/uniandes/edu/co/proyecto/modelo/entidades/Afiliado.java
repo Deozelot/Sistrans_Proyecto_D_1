@@ -1,6 +1,8 @@
-package uniandes.edu.co.proyecto.modelo;
+package uniandes.edu.co.proyecto.modelo.entidades;
 
 import jakarta.persistence.*;
+import uniandes.edu.co.proyecto.modelo.enums.TipoAfiliado;
+import uniandes.edu.co.proyecto.modelo.enums.TipoDoc;
 
 import java.util.Date;
 import java.util.List;

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="4c480672-0f8b-4837-9052-3da90bdd6841" name="@fn4.oracle.virtual.uniandes.edu.co Mapping">
+      <data-sources db="31c12e9a-52e9-4087-a256-b3b0c803e0d8" ddl="bbdfe7b7-866a-4493-8e76-e06b2d0687ee" />
+      <scope>
+        <node kind="database" qname="@">
+          <node kind="schema" negative="1" />
+        </node>
+      </scope>
+    </mapping>
+  </component>
+  <component name="SqlDataSourceStorage">
+    <option name="dataSources">
+      <list>
+        <State>
+          <option name="id" value="bbdfe7b7-866a-4493-8e76-e06b2d0687ee" />
+          <option name="name" value="@fn4.oracle.virtual.uniandes.edu.co (DDL)" />
+          <option name="dbmsName" value="ORACLE" />
+          <option name="urls">
+            <array>
+              <option value="file://$PROJECT_DIR$/src/main/java/uniandes/edu/co/proyecto/modelo/entidades" />
+            </array>
+          </option>
+          <option name="outLayout" value="File per object by schema.groovy" />
+          <option name="scopes">
+            <map>
+              <entry key="$PROJECT_DIR$/src/main/java/uniandes/edu/co/proyecto/modelo/entidades" value="" />
+            </map>
+          </option>
+        </State>
+      </list>
+    </option>
+  </component>
+</project>

@@ -1,4 +1,4 @@
-package uniandes.edu.co.proyecto.modelo;
+package uniandes.edu.co.proyecto.modelo.entidades;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
