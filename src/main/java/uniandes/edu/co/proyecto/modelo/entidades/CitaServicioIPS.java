@@ -15,4 +15,20 @@ public class CitaServicioIPS extends HorarioServicioIPS {
 
     @OneToOne
     private Orden orden;
+
+    public Afiliado getAfiliado() {
+        return afiliado;
+    }
+
+    public void setAfiliado(Afiliado afiliado) {
+        this.afiliado = afiliado;
+    }
+
+    public Orden getOrden() {
+        return orden;
+    }
+
+    public void setOrden(Orden orden) {
+        this.orden = orden;
+    }
 }

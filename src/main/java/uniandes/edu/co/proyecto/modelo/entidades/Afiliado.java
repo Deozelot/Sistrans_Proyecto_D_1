@@ -109,4 +109,44 @@ public class Afiliado {
     public void setTipoAfiliado(TipoAfiliado tipoAfiliado) {
         this.tipoAfiliado = tipoAfiliado;
     }
+
+    public List<Beneficiario> getBeneficiarios() {
+        return beneficiarios;
+    }
+
+    public void setBeneficiarios(List<Beneficiario> beneficiarios) {
+        this.beneficiarios = beneficiarios;
+    }
+
+    public EPS getEps() {
+        return eps;
+    }
+
+    public void setEps(EPS eps) {
+        this.eps = eps;
+    }
+
+    public List<PrestacionServicioEps> getPrestaciones() {
+        return prestaciones;
+    }
+
+    public void setPrestaciones(List<PrestacionServicioEps> prestaciones) {
+        this.prestaciones = prestaciones;
+    }
+
+    public List<Orden> getOrdenes() {
+        return ordenes;
+    }
+
+    public void setOrdenes(List<Orden> ordenes) {
+        this.ordenes = ordenes;
+    }
+
+    public List<CitaServicioIPS> getCitas() {
+        return citas;
+    }
+
+    public void setCitas(List<CitaServicioIPS> citas) {
+        this.citas = citas;
+    }
 }

@@ -16,6 +16,30 @@ public class EPS {
     @OneToMany(mappedBy = "eps", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Afiliado> afiliados;
 
+    public List<Afiliado> getAfiliados() {
+        return afiliados;
+    }
+
+    public void setAfiliados(List<Afiliado> afiliados) {
+        this.afiliados = afiliados;
+    }
+
+    public List<ServicioSalud> getServicios() {
+        return servicios;
+    }
+
+    public void setServicios(List<ServicioSalud> servicios) {
+        this.servicios = servicios;
+    }
+
+    public List<IPS> getIpss() {
+        return ipss;
+    }
+
+    public void setIpss(List<IPS> ipss) {
+        this.ipss = ipss;
+    }
+
     @ManyToMany
     private List<ServicioSalud> servicios;
 

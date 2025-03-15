@@ -69,4 +69,36 @@ public class IPS {
     public void setTelefono(Long telefono) {
         this.telefono = telefono;
     }
+
+    public List<ServicioSalud> getListaServicios() {
+        return listaServicios;
+    }
+
+    public void setListaServicios(List<ServicioSalud> listaServicios) {
+        this.listaServicios = listaServicios;
+    }
+
+    public EPS getEps() {
+        return eps;
+    }
+
+    public void setEps(EPS eps) {
+        this.eps = eps;
+    }
+
+    public List<Medico> getMedicos() {
+        return medicos;
+    }
+
+    public void setMedicos(List<Medico> medicos) {
+        this.medicos = medicos;
+    }
+
+    public List<HorarioServicioIPS> getHorarioServicioIPSs() {
+        return horarioServicioIPSs;
+    }
+
+    public void setHorarioServicioIPSs(List<HorarioServicioIPS> horarioServicioIPSs) {
+        this.horarioServicioIPSs = horarioServicioIPSs;
+    }
 }

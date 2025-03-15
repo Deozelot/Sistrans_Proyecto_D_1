@@ -56,4 +56,28 @@ public class Orden {
     public void setEstado(EstadoOrden estado) {
         this.estado = estado;
     }
+
+    public Afiliado getAfiliado() {
+        return afiliado;
+    }
+
+    public void setAfiliado(Afiliado afiliado) {
+        this.afiliado = afiliado;
+    }
+
+    public Medico getMedico() {
+        return medico;
+    }
+
+    public void setMedico(Medico medico) {
+        this.medico = medico;
+    }
+
+    public ServicioSalud getServicio() {
+        return servicio;
+    }
+
+    public void setServicio(ServicioSalud servicio) {
+        this.servicio = servicio;
+    }
 }

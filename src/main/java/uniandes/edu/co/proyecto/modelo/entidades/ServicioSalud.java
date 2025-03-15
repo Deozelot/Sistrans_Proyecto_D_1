@@ -68,4 +68,28 @@ public class ServicioSalud {
     public void setTipo(TipoServicio tipo) {
         this.tipo = tipo;
     }
+
+    public List<EPS> getEpss() {
+        return epss;
+    }
+
+    public void setEpss(List<EPS> epss) {
+        this.epss = epss;
+    }
+
+    public List<HorarioServicioIPS> getHorarioServiciosIPSs() {
+        return horarioServiciosIPSs;
+    }
+
+    public void setHorarioServiciosIPSs(List<HorarioServicioIPS> horarioServiciosIPSs) {
+        this.horarioServiciosIPSs = horarioServiciosIPSs;
+    }
+
+    public List<Orden> getOrdenes() {
+        return ordenes;
+    }
+
+    public void setOrdenes(List<Orden> ordenes) {
+        this.ordenes = ordenes;
+    }
 }

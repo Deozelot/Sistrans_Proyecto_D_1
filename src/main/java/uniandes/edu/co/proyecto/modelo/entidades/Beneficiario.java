@@ -34,4 +34,12 @@ public class Beneficiario extends Afiliado {
     public void setParentesco(Parentesco parentesco) {
         this.parentesco = parentesco;
     }
+
+    public Afiliado getContribuyente() {
+        return contribuyente;
+    }
+
+    public void setContribuyente(Afiliado contribuyente) {
+        this.contribuyente = contribuyente;
+    }
 }

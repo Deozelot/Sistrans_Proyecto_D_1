@@ -18,6 +18,22 @@ public class Horario {
     private Time horaInicio;
     private Time horaFin;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public List<HorarioServicioIPS> getHorariosServiciosIPSs() {
+        return horariosServiciosIPSs;
+    }
+
+    public void setHorariosServiciosIPSs(List<HorarioServicioIPS> horariosServiciosIPSs) {
+        this.horariosServiciosIPSs = horariosServiciosIPSs;
+    }
+
     @OneToMany(mappedBy = "horario")
     private List<HorarioServicioIPS> horariosServiciosIPSs;
 

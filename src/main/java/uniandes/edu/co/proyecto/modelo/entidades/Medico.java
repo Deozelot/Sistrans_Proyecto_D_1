@@ -78,4 +78,28 @@ public class Medico {
     public void setNumRegistro(Long numRegistro) {
         this.numRegistro = numRegistro;
     }
+
+    public IPS getIps() {
+        return ips;
+    }
+
+    public void setIps(IPS ips) {
+        this.ips = ips;
+    }
+
+    public List<Orden> getOrdenes() {
+        return ordenes;
+    }
+
+    public void setOrdenes(List<Orden> ordenes) {
+        this.ordenes = ordenes;
+    }
+
+    public List<PrestacionServicioEps> getPrestacioneServicioEps() {
+        return prestacioneServicioEps;
+    }
+
+    public void setPrestacioneServicioEps(List<PrestacionServicioEps> prestacioneServicioEps) {
+        this.prestacioneServicioEps = prestacioneServicioEps;
+    }
 }
