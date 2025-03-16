@@ -19,7 +19,7 @@ public class EPS {
     @ManyToMany
     private List<Servicio> servicios;
 
-    @OneToMany(mappedBy = "ips", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "eps", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<IPS> ipss;
 
     public EPS(String nombre, Long nit) {
