@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "Afiliados")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "tipo_afiliado")
 @DiscriminatorValue(value = "contribuyente")
 public class Afiliado {

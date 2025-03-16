@@ -15,7 +15,7 @@ public class IPS {
 
     private String direccion;
 
-    private Long telefono;
+    private String telefono;
 
     @ManyToMany
     private List<ServicioSalud> servicios;
@@ -29,7 +29,7 @@ public class IPS {
     @OneToMany(mappedBy = "ips")
     private List<HorarioServicioIPS> horariosServicioIPSs;
 
-    public IPS(Long nit, String nombre, String direccion, Long telefono) {
+    public IPS(Long nit, String nombre, String direccion, String telefono) {
         this.nit = nit;
         this.nombre = nombre;
         this.direccion = direccion;
@@ -62,11 +62,11 @@ public class IPS {
         this.direccion = direccion;
     }
 
-    public Long getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(Long telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
