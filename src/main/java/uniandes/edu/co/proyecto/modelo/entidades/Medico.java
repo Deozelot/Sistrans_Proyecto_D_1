@@ -39,11 +39,11 @@ public class Medico {
 
     public Medico() {}
 
-    public TipoDoc getTipo() {
+    public TipoDoc getTipoDoc() {
         return tipoDoc;
     }
 
-    public void setTipo(TipoDoc tipo) {
+    public void setTipoDoc(TipoDoc tipo) {
         this.tipoDoc = tipo;
     }
 
