@@ -20,12 +20,12 @@ public interface AfiliadoRepository extends JpaRepository<Afiliado, Long> {
     @Modifying
     @Transactional
     @Query(value = "INSERT INTO afiliados (num_doc, tipo_doc, nombre, fecha_nacimiento, direccion, telefono, tipo_afiliado, eps_nit) VALUES (:num_doc, :tipo_doc, :nombre, :fecha_nacimiento, :direccion, :telefono, :tipo_afiliado, :eps_nit)", nativeQuery = true)
-    void crearAfiliado(@Param("num_doc") Long numDoc, @Param("tipo_doc") String tipoDoc, @Param("nombre") String nombre, @Param("fecha_nacimiento") java.sql.Timestamp fechaNacimiento, @Param("direccion") String direccion, @Param("telefono") Long telefono, @Param("tipo_afiliado") String tipoAfiliado, @Param("eps_nit") Long epsNit);
+    void crearAfiliado(@Param("num_doc") Long numDoc, @Param("tipo_doc") String tipoDoc, @Param("nombre") String nombre, @Param("fecha_nacimiento") java.sql.Date fechaNacimiento, @Param("direccion") String direccion, @Param("telefono") Long telefono, @Param("tipo_afiliado") String tipoAfiliado, @Param("eps_nit") Long epsNit);
 
     @Modifying
     @Transactional
     @Query(value = "UPDATE afiliados SET tipo_doc = :tipo_doc, nombre = :nombre, fecha_nacimiento = :fecha_nacimiento, direccion = :direccion, telefono = :telefono, tipo_afiliado = :tipo_afiliado, eps_nit = :eps_nit WHERE num_doc = :num_doc", nativeQuery = true)
-    void actualizarAfiliado(@Param("num_doc") Long numDoc, @Param("tipo_doc") String tipoDoc, @Param("nombre") String nombre, @Param("fecha_nacimiento") java.sql.Timestamp fechaNacimiento, @Param("direccion") String direccion, @Param("telefono") Long telefono, @Param("tipo_afiliado") String tipoAfiliado, @Param("eps_nit") Long epsNit);
+    void actualizarAfiliado(@Param("num_doc") Long numDoc, @Param("tipo_doc") String tipoDoc, @Param("nombre") String nombre, @Param("fecha_nacimiento") java.sql.Date fechaNacimiento, @Param("direccion") String direccion, @Param("telefono") Long telefono, @Param("tipo_afiliado") String tipoAfiliado, @Param("eps_nit") Long epsNit);
 
     @Modifying
     @Transactional
