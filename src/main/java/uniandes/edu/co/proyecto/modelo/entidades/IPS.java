@@ -18,7 +18,7 @@ public class IPS {
     private String telefono;
 
     @ManyToMany
-    private List<ServicioSalud> servicios;
+    private List<Servicio> servicios;
 
     @ManyToOne
     private EPS eps;
@@ -70,11 +70,11 @@ public class IPS {
         this.telefono = telefono;
     }
 
-    public List<ServicioSalud> getListaServicios() {
+    public List<Servicio> getListaServicios() {
         return servicios;
     }
 
-    public void setListaServicios(List<ServicioSalud> listaServicios) {
+    public void setListaServicios(List<Servicio> listaServicios) {
         this.servicios = listaServicios;
     }
 

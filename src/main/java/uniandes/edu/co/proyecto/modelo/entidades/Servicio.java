@@ -7,7 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name= "Servicios")
-public class ServicioSalud {
+public class Servicio {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,14 +28,14 @@ public class ServicioSalud {
     @OneToMany(mappedBy = "servicio")
     private List<Orden> ordenes;
 
-    public ServicioSalud(Long id, String nombre, String descripcion, TipoServicio tipo) {
+    public Servicio(Long id, String nombre, String descripcion, TipoServicio tipo) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.tipo = tipo;
     }
 
-    public ServicioSalud() {}
+    public Servicio() {}
 
     public Long getId() {
         return id;

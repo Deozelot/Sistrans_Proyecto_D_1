@@ -6,7 +6,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "Prestaciones_ServiciosIPSs")
-public class PrestacionServicioIps extends HorarioServicioIPS{
+public class PrestacionServicioIPS extends HorarioServicioIPS{
 
     @ManyToOne
     private Afiliado afiliado;
@@ -14,13 +14,13 @@ public class PrestacionServicioIps extends HorarioServicioIPS{
     @ManyToOne
     private Medico medico;
 
-    public PrestacionServicioIps(Afiliado afiliado, Medico medico) {
+    public PrestacionServicioIPS(Afiliado afiliado, Medico medico) {
         super();
         this.afiliado = afiliado;
         this.medico = medico;
     }
 
-    public PrestacionServicioIps() {}
+    public PrestacionServicioIPS() {}
 
     public Afiliado getAfiliado() {
         return afiliado;

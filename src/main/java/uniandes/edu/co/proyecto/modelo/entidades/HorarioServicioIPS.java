@@ -15,12 +15,12 @@ public class HorarioServicioIPS {
     private Horario horario;
 
     @ManyToOne
-    private ServicioSalud servicio;
+    private Servicio servicio;
 
     @ManyToOne
     private IPS ips;
 
-    public HorarioServicioIPS(Long id, Horario horario, ServicioSalud servicio, IPS ips) {
+    public HorarioServicioIPS(Long id, Horario horario, Servicio servicio, IPS ips) {
         this.id = id;
         this.horario = horario;
         this.servicio = servicio;
@@ -45,11 +45,11 @@ public class HorarioServicioIPS {
         this.horario = horario;
     }
 
-    public ServicioSalud getServicio() {
+    public Servicio getServicio() {
         return servicio;
     }
 
-    public void setServicio(ServicioSalud servicio) {
+    public void setServicio(Servicio servicio) {
         this.servicio = servicio;
     }
 

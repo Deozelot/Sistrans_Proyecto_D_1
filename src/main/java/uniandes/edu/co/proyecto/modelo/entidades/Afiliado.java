@@ -32,7 +32,7 @@ public class Afiliado {
     private EPS eps;
 
     @OneToMany(mappedBy = "afiliado")
-    private List<PrestacionServicioIps> prestaciones;
+    private List<PrestacionServicioIPS> prestaciones;
 
     @OneToMany(mappedBy = "afiliado")
     private List<Orden> ordenes;
@@ -116,11 +116,11 @@ public class Afiliado {
         this.eps = eps;
     }
 
-    public List<PrestacionServicioIps> getPrestaciones() {
+    public List<PrestacionServicioIPS> getPrestaciones() {
         return prestaciones;
     }
 
-    public void setPrestaciones(List<PrestacionServicioIps> prestaciones) {
+    public void setPrestaciones(List<PrestacionServicioIPS> prestaciones) {
         this.prestaciones = prestaciones;
     }
 

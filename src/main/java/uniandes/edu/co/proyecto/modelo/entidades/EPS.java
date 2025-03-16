@@ -17,7 +17,7 @@ public class EPS {
     private List<Afiliado> afiliados;
 
     @ManyToMany
-    private List<ServicioSalud> servicios;
+    private List<Servicio> servicios;
 
     @OneToMany(mappedBy = "ips", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<IPS> ipss;
@@ -53,11 +53,11 @@ public class EPS {
         this.afiliados = afiliados;
     }
 
-    public List<ServicioSalud> getServicios() {
+    public List<Servicio> getServicios() {
         return servicios;
     }
 
-    public void setServicios(List<ServicioSalud> servicios) {
+    public void setServicios(List<Servicio> servicios) {
         this.servicios = servicios;
     }
 

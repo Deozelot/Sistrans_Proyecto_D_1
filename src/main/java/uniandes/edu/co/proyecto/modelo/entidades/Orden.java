@@ -23,7 +23,7 @@ public class Orden {
     private Medico medico;
 
     @ManyToOne
-    private ServicioSalud servicio;
+    private Servicio servicio;
 
     public Orden(Long numOrden, Date fecha, EstadoOrden estado) {
         this.numOrden = numOrden;
@@ -73,11 +73,11 @@ public class Orden {
         this.medico = medico;
     }
 
-    public ServicioSalud getServicio() {
+    public Servicio getServicio() {
         return servicio;
     }
 
-    public void setServicio(ServicioSalud servicio) {
+    public void setServicio(Servicio servicio) {
         this.servicio = servicio;
     }
 }

@@ -27,7 +27,7 @@ public class Medico {
     private List<Orden> ordenes;
 
     @OneToMany(mappedBy = "medico")
-    private List<PrestacionServicioIps> prestacioneServicioEps;
+    private List<PrestacionServicioIPS> prestacioneServicioEps;
 
     public Medico(TipoDoc tipo, Long numDoc, String nombre, Especialidad especialidad, Long numRegistro) {
         this.tipoDoc = tipo;
@@ -95,11 +95,11 @@ public class Medico {
         this.ordenes = ordenes;
     }
 
-    public List<PrestacionServicioIps> getPrestacioneServicioEps() {
+    public List<PrestacionServicioIPS> getPrestacioneServicioEps() {
         return prestacioneServicioEps;
     }
 
-    public void setPrestacioneServicioEps(List<PrestacionServicioIps> prestacioneServicioEps) {
+    public void setPrestacioneServicioEps(List<PrestacionServicioIPS> prestacioneServicioEps) {
         this.prestacioneServicioEps = prestacioneServicioEps;
     }
 }
