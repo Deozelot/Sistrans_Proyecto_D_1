@@ -2,6 +2,7 @@ package uniandes.edu.co.proyecto.modelo.entidades;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -17,17 +18,17 @@ public class IPS {
 
     private String telefono;
 
-    @ManyToMany
-    private List<Servicio> servicios;
+    @ManyToMany(mappedBy = "ipss")
+    private List<Servicio> servicios = new ArrayList<>();
 
     @ManyToOne
     private EPS eps;
 
-    @OneToMany
-    private List<Medico> medicos;
+    @OneToMany(mappedBy = "ips")
+    private List<Medico> medicos = new ArrayList<>();
 
     @OneToMany(mappedBy = "ips")
-    private List<HorarioServicioIPS> horariosServicioIPSs;
+    private List<HorarioServicioIPS> horariosServicioIPSs = new ArrayList<>();
 
     public IPS(Long nit, String nombre, String direccion, String telefono) {
         this.nit = nit;
@@ -70,11 +71,11 @@ public class IPS {
         this.telefono = telefono;
     }
 
-    public List<Servicio> getListaServicios() {
+    public List<Servicio> getServicios() {
         return servicios;
     }
 
-    public void setListaServicios(List<Servicio> listaServicios) {
+    public void setServicios(List<Servicio> listaServicios) {
         this.servicios = listaServicios;
     }
 

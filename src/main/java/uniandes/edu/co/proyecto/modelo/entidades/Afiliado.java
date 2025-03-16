@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import uniandes.edu.co.proyecto.modelo.enums.TipoAfiliado;
 import uniandes.edu.co.proyecto.modelo.enums.TipoDoc;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -32,13 +33,13 @@ public class Afiliado {
     private EPS eps;
 
     @OneToMany(mappedBy = "afiliado")
-    private List<PrestacionServicioIPS> prestaciones;
+    private List<PrestacionServicioIPS> prestaciones = new ArrayList<>();
 
     @OneToMany(mappedBy = "afiliado")
-    private List<Orden> ordenes;
+    private List<Orden> ordenes = new ArrayList<>();
 
     @OneToMany(mappedBy = "afiliado")
-    private List<CitaServicioIPS> citas;
+    private List<CitaServicioIPS> citas = new ArrayList<>();
 
     public Afiliado(TipoDoc tipoDoc, Long numDoc, String nombre, Date fechaNacimiento, String direccion, Long telefono, TipoAfiliado tipoAfiliado) {
         this.tipoDoc = tipoDoc;

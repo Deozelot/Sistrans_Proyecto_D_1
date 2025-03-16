@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import uniandes.edu.co.proyecto.modelo.enums.Especialidad;
 import uniandes.edu.co.proyecto.modelo.enums.TipoDoc;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -24,10 +25,10 @@ public class Medico {
     private IPS ips;
 
     @OneToMany(mappedBy = "medico")
-    private List<Orden> ordenes;
+    private List<Orden> ordenes = new ArrayList<>();
 
     @OneToMany(mappedBy = "medico")
-    private List<PrestacionServicioIPS> prestacioneServicioEps;
+    private List<PrestacionServicioIPS> prestacioneServicioEps = new ArrayList<>();
 
     public Medico(TipoDoc tipo, Long numDoc, String nombre, Especialidad especialidad, Long numRegistro) {
         this.tipoDoc = tipo;

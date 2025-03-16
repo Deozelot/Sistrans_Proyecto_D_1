@@ -28,6 +28,9 @@ public class Servicio {
     @OneToMany(mappedBy = "servicio")
     private List<Orden> ordenes;
 
+    @ManyToMany
+    private List<IPS> ipss;
+
     public Servicio(Long id, String nombre, String descripcion, TipoServicio tipo) {
         this.id = id;
         this.nombre = nombre;
@@ -92,4 +95,21 @@ public class Servicio {
     public void setOrdenes(List<Orden> ordenes) {
         this.ordenes = ordenes;
     }
+
+    public List<HorarioServicioIPS> getHorariosServiciosIPSs() {
+        return horariosServiciosIPSs;
+    }
+
+    public void setHorariosServiciosIPSs(List<HorarioServicioIPS> horariosServiciosIPSs) {
+        this.horariosServiciosIPSs = horariosServiciosIPSs;
+    }
+
+    public List<IPS> getIpss() {
+        return ipss;
+    }
+
+    public void setIpss(List<IPS> ipss) {
+        this.ipss = ipss;
+    }
 }
+

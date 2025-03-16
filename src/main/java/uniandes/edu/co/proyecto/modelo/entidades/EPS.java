@@ -2,6 +2,7 @@ package uniandes.edu.co.proyecto.modelo.entidades;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -14,13 +15,13 @@ public class EPS {
     private Long nit;
 
     @OneToMany(mappedBy = "eps", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Afiliado> afiliados;
+    private List<Afiliado> afiliados = new ArrayList<>();
 
     @OneToMany(mappedBy = "eps", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Servicio> servicios;
+    private List<Servicio> servicios = new ArrayList<>();
 
     @OneToMany(mappedBy = "eps", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<IPS> ipss;
+    private List<IPS> ipss = new ArrayList<>();
 
     public EPS(String nombre, Long nit) {
         this.nombre = nombre;

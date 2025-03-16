@@ -18,18 +18,18 @@ public class ServicioController {
 
     @GetMapping
     public Collection<Servicio> getAllServicios() {
-        return servicioRepository.darServiciosSalud();
+        return servicioRepository.darServicios();
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Servicio> getServicioById(@PathVariable Long id) {
-        Optional<Servicio> servicio = Optional.ofNullable(servicioRepository.darServicioSalud(id));
+        Optional<Servicio> servicio = Optional.ofNullable(servicioRepository.darServicio(id));
         return servicio.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping
     public ResponseEntity<Servicio> createServicio(@RequestBody Servicio servicio) {
-        servicioRepository.crearServicioSalud(
+        servicioRepository.crearServicio(
                 servicio.getId(),
                 servicio.getNombre(),
                 servicio.getDescripcion(),
@@ -41,7 +41,7 @@ public class ServicioController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Servicio> updateServicio(@PathVariable Long id, @RequestBody Servicio servicio) {
-        servicioRepository.actualizarServicioSalud(
+        servicioRepository.actualizarServicio(
                 id,
                 servicio.getNombre(),
                 servicio.getDescripcion(),
@@ -52,7 +52,7 @@ public class ServicioController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteServicio(@PathVariable Long id) {
-        servicioRepository.eliminarServicioSalud(id);
+        servicioRepository.eliminarServicio(id);
         return ResponseEntity.noContent().build();
     }
 }

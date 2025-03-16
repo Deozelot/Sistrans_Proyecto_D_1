@@ -15,7 +15,7 @@ public interface IPSRepository extends JpaRepository<IPS, Long> {
     Collection<IPS> darIPS();
 
     @Query(value = "SELECT * FROM ipss WHERE nit = :nit", nativeQuery = true)
-    IPS darIPSPorId(@Param("nit") Long nit);
+    IPS darIPSPorNit(@Param("nit") Long nit);
 
     @Modifying
     @Transactional
