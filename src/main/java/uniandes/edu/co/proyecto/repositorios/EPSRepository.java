@@ -20,12 +20,12 @@ public interface EPSRepository extends JpaRepository<EPS, Long> {
     @Modifying
     @Transactional
     @Query(value = "INSERT INTO epss (nit, nombre) VALUES (:nit, :nombre)", nativeQuery = true)
-    void crearEPS(@Param("nit") Long nit, @Param("nombre") String nombre, @Param("direccion") String direccion, @Param("telefono") String telefono);
+    void crearEPS(@Param("nit") Long nit, @Param("nombre") String nombre);
 
     @Modifying
     @Transactional
     @Query(value = "UPDATE epss SET nombre = :nombre WHERE nit = :nit", nativeQuery = true)
-    void actualizarEPS(@Param("nit") Long nit, @Param("nombre") String nombre, @Param("direccion") String direccion, @Param("telefono") String telefono);
+    void actualizarEPS(@Param("nit") Long nit, @Param("nombre") String nombre);
 
     @Modifying
     @Transactional

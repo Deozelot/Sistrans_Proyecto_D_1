@@ -5,17 +5,17 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-import uniandes.edu.co.proyecto.modelo.entidades.PrestacionServicioIps;
+import uniandes.edu.co.proyecto.modelo.entidades.PrestacionServicioIPS;
 
 import java.util.Collection;
 
-public interface PrestacionServicioIpsRepository extends JpaRepository<PrestacionServicioIps, Long> {
+public interface PrestacionServicioIPSRepository extends JpaRepository<PrestacionServicioIPS, Long> {
 
     @Query(value = "SELECT * FROM prestaciones_serviciosipss", nativeQuery = true)
-    Collection<PrestacionServicioIps> darPrestacionesServicioIps();
+    Collection<PrestacionServicioIPS> darPrestacionesServicioIps();
 
     @Query(value = "SELECT * FROM prestaciones_serviciosipss WHERE id = :id", nativeQuery = true)
-    PrestacionServicioIps darPrestacionServicioIps(@Param("id") Long id);
+    PrestacionServicioIPS darPrestacionServicioIps(@Param("id") Long id);
 
     @Modifying
     @Transactional

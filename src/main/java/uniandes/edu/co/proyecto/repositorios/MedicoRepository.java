@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import uniandes.edu.co.proyecto.modelo.entidades.Medico;
+import uniandes.edu.co.proyecto.modelo.enums.Especialidad;
+import uniandes.edu.co.proyecto.modelo.enums.TipoDoc;
 
 import java.util.Collection;
 
@@ -20,12 +22,12 @@ public interface MedicoRepository extends JpaRepository<Medico, Long> {
     @Modifying
     @Transactional
     @Query(value = "INSERT INTO medicos (tipo_doc, num_doc, nombre, especialidad, num_registro) VALUES (:tipo_doc, :num_doc, :nombre, :especialidad, :num_registro)", nativeQuery = true)
-    void crearMedico(@Param("tipo_doc") String tipoDoc, @Param("num_doc") Long numDoc, @Param("nombre") String nombre, @Param("especialidad") String especialidad, @Param("num_registro") Long numRegistro);
+    void crearMedico(@Param("tipo_doc") TipoDoc tipoDoc, @Param("num_doc") Long numDoc, @Param("nombre") String nombre, @Param("especialidad") Especialidad especialidad, @Param("num_registro") Long numRegistro);
 
     @Modifying
     @Transactional
     @Query(value = "UPDATE medicos SET tipo_doc = :tipo_doc, num_doc = :num_doc, nombre = :nombre, especialidad = :especialidad WHERE num_registro = :num_registro", nativeQuery = true)
-    void actualizarMedico(@Param("tipo_doc") String tipoDoc, @Param("num_doc") Long numDoc, @Param("nombre") String nombre, @Param("especialidad") String especialidad, @Param("num_registro") Long numRegistro);
+    void actualizarMedico(@Param("tipo_doc") TipoDoc tipoDoc, @Param("num_doc") Long numDoc, @Param("nombre") String nombre, @Param("especialidad") Especialidad especialidad, @Param("num_registro") Long numRegistro);
 
     @Modifying
     @Transactional
