@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import uniandes.edu.co.proyecto.modelo.entidades.Orden;
 
+import java.sql.Date;
 import java.util.Collection;
 
 public interface OrdenRepository extends JpaRepository<Orden, Long> {
@@ -14,21 +15,21 @@ public interface OrdenRepository extends JpaRepository<Orden, Long> {
     @Query(value = "SELECT * FROM ordenes", nativeQuery = true)
     Collection<Orden> darOrdenes();
 
-    @Query(value = "SELECT * FROM ordenes WHERE id = :id", nativeQuery = true)
-    Orden darOrden(@Param("id") Long id);
+    @Query(value = "SELECT * FROM ordenes WHERE num_orden = :num_orden", nativeQuery = true)
+    Orden darOrden(@Param("num_orden") Long numOrden);
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO ordenes (id, descripcion, fecha) VALUES (:id, :descripcion, :fecha)", nativeQuery = true)
-    void crearOrden(@Param("id") Long id, @Param("descripcion") String descripcion, @Param("fecha") String fecha);
+    @Query(value = "INSERT INTO ordenes (num_orden, fecha, estado, afiliado_num_doc, medico_num_registro, servicio_id) VALUES (:num_orden, :fecha, :estado, :afiliado_num_doc, :medico_num_registro, :servicio_id)", nativeQuery = true)
+    void crearOrden(@Param("num_orden") Long numOrden, @Param("fecha") Date fecha, @Param("estado") String estado, @Param("afiliado_num_doc") Long afiliadoNumDoc, @Param("medico_num_registro") Long medicoNumRegistro, @Param("servicio_id") Long servicioId);
 
     @Modifying
     @Transactional
-    @Query(value = "UPDATE ordenes SET descripcion = :descripcion, fecha = :fecha WHERE id = :id", nativeQuery = true)
-    void actualizarOrden(@Param("id") Long id, @Param("descripcion") String descripcion, @Param("fecha") String fecha);
+    @Query(value = "UPDATE ordenes SET fecha = :fecha, estado = :estado, afiliado_num_doc = :afiliado_num_doc, medico_num_registro = :medico_num_registro, servicio_id = :servicio_id WHERE num_orden = :num_orden", nativeQuery = true)
+    void actualizarOrden(@Param("num_orden") Long numOrden, @Param("fecha") Date fecha, @Param("estado") String estado, @Param("afiliado_num_doc") Long afiliadoNumDoc, @Param("medico_num_registro") Long medicoNumRegistro, @Param("servicio_id") Long servicioId);
 
     @Modifying
     @Transactional
-    @Query(value = "DELETE FROM ordenes WHERE id = :id", nativeQuery = true)
-    void eliminarOrden(@Param("id") Long id);
+    @Query(value = "DELETE FROM ordenes WHERE num_orden = :num_orden", nativeQuery = true)
+    void eliminarOrden(@Param("num_orden") Long numOrden);
 }

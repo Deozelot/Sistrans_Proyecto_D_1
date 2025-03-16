@@ -14,21 +14,21 @@ public interface MedicoRepository extends JpaRepository<Medico, Long> {
     @Query(value = "SELECT * FROM medicos", nativeQuery = true)
     Collection<Medico> darMedicos();
 
-    @Query(value = "SELECT * FROM medicos WHERE id = :id", nativeQuery = true)
-    Medico darMedico(@Param("id") Long id);
+    @Query(value = "SELECT * FROM medicos WHERE num_registro = :num_registro", nativeQuery = true)
+    Medico darMedico(@Param("num_registro") Long numRegistro);
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO medicos (id, nombre, especialidad) VALUES (:id, :nombre, :especialidad)", nativeQuery = true)
-    void crearMedico(@Param("id") Long id, @Param("nombre") String nombre, @Param("especialidad") String especialidad);
+    @Query(value = "INSERT INTO medicos (tipo_doc, num_doc, nombre, especialidad, num_registro) VALUES (:tipo_doc, :num_doc, :nombre, :especialidad, :num_registro)", nativeQuery = true)
+    void crearMedico(@Param("tipo_doc") String tipoDoc, @Param("num_doc") Long numDoc, @Param("nombre") String nombre, @Param("especialidad") String especialidad, @Param("num_registro") Long numRegistro);
 
     @Modifying
     @Transactional
-    @Query(value = "UPDATE medicos SET nombre = :nombre, especialidad = :especialidad WHERE id = :id", nativeQuery = true)
-    void actualizarMedico(@Param("id") Long id, @Param("nombre") String nombre, @Param("especialidad") String especialidad);
+    @Query(value = "UPDATE medicos SET tipo_doc = :tipo_doc, num_doc = :num_doc, nombre = :nombre, especialidad = :especialidad WHERE num_registro = :num_registro", nativeQuery = true)
+    void actualizarMedico(@Param("tipo_doc") String tipoDoc, @Param("num_doc") Long numDoc, @Param("nombre") String nombre, @Param("especialidad") String especialidad, @Param("num_registro") Long numRegistro);
 
     @Modifying
     @Transactional
-    @Query(value = "DELETE FROM medicos WHERE id = :id", nativeQuery = true)
-    void eliminarMedico(@Param("id") Long id);
+    @Query(value = "DELETE FROM medicos WHERE num_registro = :num_registro", nativeQuery = true)
+    void eliminarMedico(@Param("num_registro") Long numRegistro);
 }

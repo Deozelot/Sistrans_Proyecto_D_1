@@ -11,24 +11,24 @@ import java.util.Collection;
 
 public interface HorarioServicioIPSRepository extends JpaRepository<HorarioServicioIPS, Long> {
 
-    @Query(value = "SELECT * FROM horarios_servicio_ips", nativeQuery = true)
+    @Query(value = "SELECT * FROM horarios_serviciosipss", nativeQuery = true)
     Collection<HorarioServicioIPS> darHorariosServicioIPS();
 
-    @Query(value = "SELECT * FROM horarios_servicio_ips WHERE id = :id", nativeQuery = true)
+    @Query(value = "SELECT * FROM horarios_serviciosipss WHERE id = :id", nativeQuery = true)
     HorarioServicioIPS darHorarioServicioIPS(@Param("id") Long id);
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO horarios_servicio_ips (id, dia, hora_inicio, hora_fin) VALUES (:id, :dia, :hora_inicio, :hora_fin)", nativeQuery = true)
-    void crearHorarioServicioIPS(@Param("id") Long id, @Param("dia") String dia, @Param("hora_inicio") String horaInicio, @Param("hora_fin") String horaFin);
+    @Query(value = "INSERT INTO horarios_serviciosipss (id, horario_id, servicio_id, ips_nit) VALUES (:id, :horario_id, :servicio_id, :ips_nit)", nativeQuery = true)
+    void crearHorarioServicioIPS(@Param("id") Long id, @Param("horario_id") Long horarioId, @Param("servicio_id") Long servicioId, @Param("ips_nit") Long ipsNit);
 
     @Modifying
     @Transactional
-    @Query(value = "UPDATE horarios_servicio_ips SET dia = :dia, hora_inicio = :hora_inicio, hora_fin = :hora_fin WHERE id = :id", nativeQuery = true)
-    void actualizarHorarioServicioIPS(@Param("id") Long id, @Param("dia") String dia, @Param("hora_inicio") String horaInicio, @Param("hora_fin") String horaFin);
+    @Query(value = "UPDATE horarios_serviciosipss SET  horario_id = :horario_id, servicio_id = :servicio_id, ips_nit = :ips_nit WHERE id = :id", nativeQuery = true)
+    void actualizarHorarioServicioIPS(@Param("id") Long id, @Param("horario_id") Long horarioId, @Param("servicio_id") Long servicioId, @Param("ips_nit") Long ipsNit);
 
     @Modifying
     @Transactional
-    @Query(value = "DELETE FROM horarios_servicio_ips WHERE id = :id", nativeQuery = true)
+    @Query(value = "DELETE FROM horarios_serviciosipss WHERE id = :id", nativeQuery = true)
     void eliminarHorarioServicioIPS(@Param("id") Long id);
 }

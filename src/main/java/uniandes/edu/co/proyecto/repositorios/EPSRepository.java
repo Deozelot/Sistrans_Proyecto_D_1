@@ -11,24 +11,24 @@ import java.util.Collection;
 
 public interface EPSRepository extends JpaRepository<EPS, Long> {
 
-    @Query(value = "SELECT * FROM eps", nativeQuery = true)
+    @Query(value = "SELECT * FROM epss", nativeQuery = true)
     Collection<EPS> darEPS();
 
-    @Query(value = "SELECT * FROM eps WHERE nit = :nit", nativeQuery = true)
+    @Query(value = "SELECT * FROM epss WHERE nit = :nit", nativeQuery = true)
     EPS darEPSPorNit(@Param("nit") Long nit);
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO eps (nit, nombre, direccion, telefono) VALUES (:nit, :nombre, :direccion, :telefono)", nativeQuery = true)
-    void crearEPS(@Param("nit") Long nit, @Param("nombre") String nombre, @Param("direccion") String direccion, @Param("telefono") Long telefono);
+    @Query(value = "INSERT INTO epss (nit, nombre) VALUES (:nit, :nombre)", nativeQuery = true)
+    void crearEPS(@Param("nit") Long nit, @Param("nombre") String nombre, @Param("direccion") String direccion, @Param("telefono") String telefono);
 
     @Modifying
     @Transactional
-    @Query(value = "UPDATE eps SET nombre = :nombre, direccion = :direccion, telefono = :telefono WHERE nit = :nit", nativeQuery = true)
-    void actualizarEPS(@Param("nit") Long nit, @Param("nombre") String nombre, @Param("direccion") String direccion, @Param("telefono") Long telefono);
+    @Query(value = "UPDATE epss SET nombre = :nombre WHERE nit = :nit", nativeQuery = true)
+    void actualizarEPS(@Param("nit") Long nit, @Param("nombre") String nombre, @Param("direccion") String direccion, @Param("telefono") String telefono);
 
     @Modifying
     @Transactional
-    @Query(value = "DELETE FROM eps WHERE nit = :nit", nativeQuery = true)
+    @Query(value = "DELETE FROM epss WHERE nit = :nit", nativeQuery = true)
     void eliminarEPS(@Param("nit") Long nit);
 }

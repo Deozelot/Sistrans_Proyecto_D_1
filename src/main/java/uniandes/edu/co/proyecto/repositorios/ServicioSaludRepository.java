@@ -11,24 +11,24 @@ import java.util.Collection;
 
 public interface ServicioSaludRepository extends JpaRepository<ServicioSalud, Long> {
 
-    @Query(value = "SELECT * FROM servicios_salud", nativeQuery = true)
+    @Query(value = "SELECT * FROM servicios", nativeQuery = true)
     Collection<ServicioSalud> darServiciosSalud();
 
-    @Query(value = "SELECT * FROM servicios_salud WHERE id = :id", nativeQuery = true)
+    @Query(value = "SELECT * FROM servicios WHERE id = :id", nativeQuery = true)
     ServicioSalud darServicioSalud(@Param("id") Long id);
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO servicios_salud (id, nombre, descripcion) VALUES (:id, :nombre, :descripcion)", nativeQuery = true)
-    void crearServicioSalud(@Param("id") Long id, @Param("nombre") String nombre, @Param("descripcion") String descripcion);
+    @Query(value = "INSERT INTO servicios (id, nombre, descripcion, tipo) VALUES (:id, :nombre, :descripcion, :tipo)", nativeQuery = true)
+    void crearServicioSalud(@Param("id") Long id, @Param("nombre") String nombre, @Param("descripcion") String descripcion, @Param("tipo") String tipo);
 
     @Modifying
     @Transactional
-    @Query(value = "UPDATE servicios_salud SET nombre = :nombre, descripcion = :descripcion WHERE id = :id", nativeQuery = true)
-    void actualizarServicioSalud(@Param("id") Long id, @Param("nombre") String nombre, @Param("descripcion") String descripcion);
+    @Query(value = "UPDATE servicios SET nombre = :nombre, descripcion = :descripcion, tipo = :tipo WHERE id = :id", nativeQuery = true)
+    void actualizarServicioSalud(@Param("id") Long id, @Param("nombre") String nombre, @Param("descripcion") String descripcion, @Param("tipo") String tipo);
 
     @Modifying
     @Transactional
-    @Query(value = "DELETE FROM servicios_salud WHERE id = :id", nativeQuery = true)
+    @Query(value = "DELETE FROM servicios WHERE id = :id", nativeQuery = true)
     void eliminarServicioSalud(@Param("id") Long id);
 }

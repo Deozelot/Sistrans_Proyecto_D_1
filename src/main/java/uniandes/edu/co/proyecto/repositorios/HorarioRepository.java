@@ -7,7 +7,9 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import uniandes.edu.co.proyecto.modelo.entidades.Horario;
 
+import java.sql.Time;
 import java.util.Collection;
+import java.sql.Date;
 
 public interface HorarioRepository extends JpaRepository<Horario, Long> {
 
@@ -20,12 +22,12 @@ public interface HorarioRepository extends JpaRepository<Horario, Long> {
     @Modifying
     @Transactional
     @Query(value = "INSERT INTO horarios (id, dia, hora_inicio, hora_fin) VALUES (:id, :dia, :hora_inicio, :hora_fin)", nativeQuery = true)
-    void crearHorario(@Param("id") Long id, @Param("dia") String dia, @Param("hora_inicio") String horaInicio, @Param("hora_fin") String horaFin);
+    void crearHorario(@Param("id") Long id, @Param("dia") Date dia, @Param("hora_inicio") Time horaInicio, @Param("hora_fin") Time horaFin);
 
     @Modifying
     @Transactional
     @Query(value = "UPDATE horarios SET dia = :dia, hora_inicio = :hora_inicio, hora_fin = :hora_fin WHERE id = :id", nativeQuery = true)
-    void actualizarHorario(@Param("id") Long id, @Param("dia") String dia, @Param("hora_inicio") String horaInicio, @Param("hora_fin") String horaFin);
+    void actualizarHorario(@Param("id") Long id, @Param("dia") Date dia, @Param("hora_inicio") Time horaInicio, @Param("hora_fin") Time horaFin);
 
     @Modifying
     @Transactional

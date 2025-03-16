@@ -11,24 +11,24 @@ import java.util.Collection;
 
 public interface PrestacionServicioIpsRepository extends JpaRepository<PrestacionServicioIps, Long> {
 
-    @Query(value = "SELECT * FROM prestaciones_servicio_eps", nativeQuery = true)
-    Collection<PrestacionServicioIps> darPrestacionesServicioEps();
+    @Query(value = "SELECT * FROM prestaciones_serviciosipss", nativeQuery = true)
+    Collection<PrestacionServicioIps> darPrestacionesServicioIps();
 
-    @Query(value = "SELECT * FROM prestaciones_servicio_eps WHERE id = :id", nativeQuery = true)
-    PrestacionServicioIps darPrestacionServicioEps(@Param("id") Long id);
-
-    @Modifying
-    @Transactional
-    @Query(value = "INSERT INTO prestaciones_servicio_eps (id, nombre, descripcion) VALUES (:id, :nombre, :descripcion)", nativeQuery = true)
-    void crearPrestacionServicioEps(@Param("id") Long id, @Param("nombre") String nombre, @Param("descripcion") String descripcion);
+    @Query(value = "SELECT * FROM prestaciones_serviciosipss WHERE id = :id", nativeQuery = true)
+    PrestacionServicioIps darPrestacionServicioIps(@Param("id") Long id);
 
     @Modifying
     @Transactional
-    @Query(value = "UPDATE prestaciones_servicio_eps SET nombre = :nombre, descripcion = :descripcion WHERE id = :id", nativeQuery = true)
-    void actualizarPrestacionServicioEps(@Param("id") Long id, @Param("nombre") String nombre, @Param("descripcion") String descripcion);
+    @Query(value = "INSERT INTO prestaciones_serviciosipss (id, afiliado_num_doc, medico_num_registro) VALUES (:id, :afiliado_num_doc, :medico_num_registro)", nativeQuery = true)
+    void crearPrestacionServicioIps(@Param("id") Long id, @Param("afiliado_num_doc") Long afiliadoNumDoc, @Param("medico_num_registro") Long medicoNumRegistro);
 
     @Modifying
     @Transactional
-    @Query(value = "DELETE FROM prestaciones_servicio_eps WHERE id = :id", nativeQuery = true)
-    void eliminarPrestacionServicioEps(@Param("id") Long id);
+    @Query(value = "UPDATE prestaciones_serviciosipss SET afiliado_num_doc = :afiliado_num_doc, medico_num_registro = :medico_num_registro WHERE id = :id", nativeQuery = true)
+    void actualizarPrestacionServicioIps(@Param("id") Long id, @Param("afiliado_num_doc") Long afiliadoNumDoc, @Param("medico_num_registro") Long medicoNumRegistro);
+
+    @Modifying
+    @Transactional
+    @Query(value = "DELETE FROM prestaciones_serviciosipss WHERE id = :id", nativeQuery = true)
+    void eliminarPrestacionServicioIps(@Param("id") Long id);
 }
