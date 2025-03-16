@@ -16,7 +16,7 @@ public class EPS {
     @OneToMany(mappedBy = "eps", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Afiliado> afiliados;
 
-    @ManyToMany
+    @OneToMany(mappedBy = "eps", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Servicio> servicios;
 
     @OneToMany(mappedBy = "eps", cascade = CascadeType.ALL, orphanRemoval = true)

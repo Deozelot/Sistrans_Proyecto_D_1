@@ -20,8 +20,8 @@ public interface ServicioRepository extends JpaRepository<Servicio, Long> {
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO servicios (id, nombre, descripcion, tipo) VALUES (:id, :nombre, :descripcion, :tipo)", nativeQuery = true)
-    void crearServicioSalud(@Param("id") Long id, @Param("nombre") String nombre, @Param("descripcion") String descripcion, @Param("tipo") TipoServicio tipo);
+    @Query(value = "INSERT INTO servicios (id, nombre, descripcion, tipo, eps_nit) VALUES (:id, :nombre, :descripcion, :tipo, :eps_nit)", nativeQuery = true)
+    void crearServicioSalud(@Param("id") Long id, @Param("nombre") String nombre, @Param("descripcion") String descripcion, @Param("tipo") TipoServicio tipo, @Param("eps_nit") Long epsNit);
 
     @Modifying
     @Transactional

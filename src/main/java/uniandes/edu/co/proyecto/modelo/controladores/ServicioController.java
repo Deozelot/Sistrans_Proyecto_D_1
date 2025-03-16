@@ -33,7 +33,8 @@ public class ServicioController {
                 servicio.getId(),
                 servicio.getNombre(),
                 servicio.getDescripcion(),
-                servicio.getTipo()
+                servicio.getTipo(),
+                servicio.getEps().getNit()
         );
         return ResponseEntity.ok(servicio);
     }

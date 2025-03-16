@@ -33,7 +33,8 @@ public class IPSController {
                 ips.getNit(),
                 ips.getNombre(),
                 ips.getDireccion(),
-                ips.getTelefono()
+                ips.getTelefono(),
+                ips.getEps().getNit()
         );
         return ResponseEntity.ok(ips);
     }
@@ -44,7 +45,8 @@ public class IPSController {
                 nit,
                 ips.getNombre(),
                 ips.getDireccion(),
-                ips.getTelefono()
+                ips.getTelefono(),
+                ips.getEps().getNit()
         );
         return ResponseEntity.ok(ips);
     }
@@ -54,4 +56,5 @@ public class IPSController {
         ipsRepository.eliminarIPS(nit);
         return ResponseEntity.noContent().build();
     }
+
 }

@@ -19,13 +19,13 @@ public interface IPSRepository extends JpaRepository<IPS, Long> {
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO ipss (nit, nombre, direccion, telefono) VALUES (:nit, :nombre, :direccion, :telefono)", nativeQuery = true)
-    void crearIPS(@Param("nit") Long nit, @Param("nombre") String nombre, @Param("direccion") String direccion, @Param("telefono") String telefono);
+    @Query(value = "INSERT INTO ipss (nit, nombre, direccion, telefono, eps_nit) VALUES (:nit, :nombre, :direccion, :telefono, :eps_nit )", nativeQuery = true)
+    void crearIPS(@Param("nit") Long nit, @Param("nombre") String nombre, @Param("direccion") String direccion, @Param("telefono") String telefono, @Param("eps_nit") Long epsNit);
 
     @Modifying
     @Transactional
     @Query(value = "UPDATE ipss SET nombre = :nombre, direccion = :direccion, telefono = :telefono WHERE nit = :nit", nativeQuery = true)
-    void actualizarIPS(@Param("nit") Long nit, @Param("nombre") String nombre, @Param("direccion") String direccion, @Param("telefono") String telefono);
+    void actualizarIPS(@Param("nit") Long nit, @Param("nombre") String nombre, @Param("direccion") String direccion, @Param("telefono") String telefono, @Param("eps_nit") Long epsNit);
 
     @Modifying
     @Transactional

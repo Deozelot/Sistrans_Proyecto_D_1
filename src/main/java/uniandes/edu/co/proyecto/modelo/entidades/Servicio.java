@@ -19,8 +19,8 @@ public class Servicio {
     @Enumerated(EnumType.STRING)
     private TipoServicio tipo;
 
-    @ManyToMany(mappedBy = "servicios")
-    private List<EPS> epss;
+    @ManyToOne
+    private EPS eps;
 
     @OneToMany(mappedBy = "servicio")
     private List<HorarioServicioIPS> horariosServiciosIPSs;
@@ -69,12 +69,12 @@ public class Servicio {
         this.tipo = tipo;
     }
 
-    public List<EPS> getEpss() {
-        return epss;
+    public EPS getEps() {
+        return eps;
     }
 
-    public void setEpss(List<EPS> epss) {
-        this.epss = epss;
+    public void setEps(EPS eps) {
+        this.eps = eps;
     }
 
     public List<HorarioServicioIPS> getHorarioServiciosIPSs() {

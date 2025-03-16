@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import uniandes.edu.co.proyecto.modelo.entidades.EPS;
+import uniandes.edu.co.proyecto.modelo.entidades.IPS;
 import uniandes.edu.co.proyecto.repositorios.EPSRepository;
+import uniandes.edu.co.proyecto.repositorios.IPSRepository;
 
 import java.util.Collection;
 import java.util.Optional;
@@ -15,6 +17,9 @@ public class EPSController {
 
     @Autowired
     private EPSRepository epsRepository;
+
+    @Autowired
+    private IPSRepository ipsRepository;
 
     @GetMapping
     public Collection<EPS> getAllEPS() {
@@ -50,4 +55,5 @@ public class EPSController {
         epsRepository.eliminarEPS(nit);
         return ResponseEntity.noContent().build();
     }
+
 }
