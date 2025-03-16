@@ -1,9 +1,6 @@
 package uniandes.edu.co.proyecto.modelo.entidades;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import uniandes.edu.co.proyecto.modelo.enums.Parentesco;
 import uniandes.edu.co.proyecto.modelo.enums.TipoAfiliado;
 import uniandes.edu.co.proyecto.modelo.enums.TipoDoc;
@@ -11,6 +8,7 @@ import uniandes.edu.co.proyecto.modelo.enums.TipoDoc;
 import java.util.Date;
 
 @Entity
+@Table(name = "Beneficiarios")
 public class Beneficiario extends Afiliado{
 
     @Enumerated(value = EnumType.STRING)

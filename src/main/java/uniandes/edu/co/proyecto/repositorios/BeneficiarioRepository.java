@@ -19,13 +19,13 @@ public interface BeneficiarioRepository extends JpaRepository<Beneficiario, Long
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO beneficiarios (num_doc, tipo_doc, nombre, fecha_nacimiento, direccion, telefono, tipo_beneficiario, eps_nit) VALUES (:num_doc, :tipo_doc, :nombre, :fecha_nacimiento, :direccion, :telefono, :tipo_beneficiario, :eps_nit)", nativeQuery = true)
-    void crearBeneficiario(@Param("num_doc") Long numDoc, @Param("tipo_doc") String tipoDoc, @Param("nombre") String nombre, @Param("fecha_nacimiento") java.sql.Timestamp fechaNacimiento, @Param("direccion") String direccion, @Param("telefono") Long telefono, @Param("tipo_beneficiario") String tipoBeneficiario, @Param("eps_nit") Long epsNit);
+    @Query(value = "INSERT INTO beneficiarios (num_doc, parentesco, contribuyente_num_doc) VALUES (:num_doc, :parentesco, :contribuyente_num_doc)", nativeQuery = true)
+    void crearBeneficiario(@Param("num_doc") Long numDoc, @Param("parentesco") String parentesco, @Param("contribuyente_num_doc") Long contribuyenteNumDoc);
 
     @Modifying
     @Transactional
-    @Query(value = "UPDATE beneficiarios SET tipo_doc = :tipo_doc, nombre = :nombre, fecha_nacimiento = :fecha_nacimiento, direccion = :direccion, telefono = :telefono, tipo_beneficiario = :tipo_beneficiario, eps_nit = :eps_nit WHERE num_doc = :num_doc", nativeQuery = true)
-    void actualizarBeneficiario(@Param("num_doc") Long numDoc, @Param("tipo_doc") String tipoDoc, @Param("nombre") String nombre, @Param("fecha_nacimiento") java.sql.Timestamp fechaNacimiento, @Param("direccion") String direccion, @Param("telefono") Long telefono, @Param("tipo_beneficiario") String tipoBeneficiario, @Param("eps_nit") Long epsNit);
+    @Query(value = "UPDATE beneficiarios SET parentesco = :parentesco, contribuyente_num_doc = :contribuyente_num_doc WHERE num_doc = :num_doc", nativeQuery = true)
+    void actualizarBeneficiario(@Param("num_doc") Long numDoc, @Param("parentesco") String parentesco, @Param("contribuyente_num_doc") Long contribuyenteNumDoc);
 
     @Modifying
     @Transactional
