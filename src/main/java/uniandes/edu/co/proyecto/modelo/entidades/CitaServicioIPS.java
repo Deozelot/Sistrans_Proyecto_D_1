@@ -6,15 +6,14 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "CitasServiciosEPSs")
+@Table(name = "Citas_ServiciosIPSs")
 public class CitaServicioIPS extends HorarioServicioIPS {
-
-
-    @ManyToOne
-    private Afiliado afiliado;
 
     @OneToOne
     private Orden orden;
+
+    @ManyToOne
+    private Afiliado afiliado;
 
     public Afiliado getAfiliado() {
         return afiliado;

@@ -16,34 +16,10 @@ public class EPS {
     @OneToMany(mappedBy = "eps", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Afiliado> afiliados;
 
-    public List<Afiliado> getAfiliados() {
-        return afiliados;
-    }
-
-    public void setAfiliados(List<Afiliado> afiliados) {
-        this.afiliados = afiliados;
-    }
-
-    public List<ServicioSalud> getServicios() {
-        return servicios;
-    }
-
-    public void setServicios(List<ServicioSalud> servicios) {
-        this.servicios = servicios;
-    }
-
-    public List<IPS> getIpss() {
-        return ipss;
-    }
-
-    public void setIpss(List<IPS> ipss) {
-        this.ipss = ipss;
-    }
-
     @ManyToMany
     private List<ServicioSalud> servicios;
 
-    @OneToMany(mappedBy = "eps", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "ips", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<IPS> ipss;
 
     public EPS(String nombre, Long nit) {
@@ -68,4 +44,32 @@ public class EPS {
     public void setNit(Long nit) {
         this.nit = nit;
     }
+
+    public List<Afiliado> getAfiliados() {
+        return afiliados;
+    }
+
+    public void setAfiliados(List<Afiliado> afiliados) {
+        this.afiliados = afiliados;
+    }
+
+    public List<ServicioSalud> getServicios() {
+        return servicios;
+    }
+
+    public void setServicios(List<ServicioSalud> servicios) {
+        this.servicios = servicios;
+    }
+
+    public List<IPS> getIpss() {
+        return ipss;
+    }
+
+    public void setIpss(List<IPS> ipss) {
+        this.ipss = ipss;
+    }
+
+
+
+
 }

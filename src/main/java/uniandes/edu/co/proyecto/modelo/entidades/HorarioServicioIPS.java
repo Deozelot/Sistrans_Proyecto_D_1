@@ -3,7 +3,7 @@ package uniandes.edu.co.proyecto.modelo.entidades;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "HorariosServiciosIPSs")
+@Table(name = "Horarios_ServiciosIPSs")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class HorarioServicioIPS {
 

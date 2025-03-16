@@ -10,7 +10,7 @@ import java.util.List;
 @Table(name = "Medicos")
 public class Medico {
 
-    private TipoDoc tipo;
+    private TipoDoc tipoDoc;
     private Long numDoc;
     private String nombre;
 
@@ -27,10 +27,10 @@ public class Medico {
     private List<Orden> ordenes;
 
     @OneToMany(mappedBy = "medico")
-    private List<PrestacionServicioEps> prestacioneServicioEps;
+    private List<PrestacionServicioIps> prestacioneServicioEps;
 
     public Medico(TipoDoc tipo, Long numDoc, String nombre, Especialidad especialidad, Long numRegistro) {
-        this.tipo = tipo;
+        this.tipoDoc = tipo;
         this.numDoc = numDoc;
         this.nombre = nombre;
         this.especialidad = especialidad;
@@ -40,11 +40,11 @@ public class Medico {
     public Medico() {}
 
     public TipoDoc getTipo() {
-        return tipo;
+        return tipoDoc;
     }
 
     public void setTipo(TipoDoc tipo) {
-        this.tipo = tipo;
+        this.tipoDoc = tipo;
     }
 
     public Long getNumDoc() {
@@ -95,11 +95,11 @@ public class Medico {
         this.ordenes = ordenes;
     }
 
-    public List<PrestacionServicioEps> getPrestacioneServicioEps() {
+    public List<PrestacionServicioIps> getPrestacioneServicioEps() {
         return prestacioneServicioEps;
     }
 
-    public void setPrestacioneServicioEps(List<PrestacionServicioEps> prestacioneServicioEps) {
+    public void setPrestacioneServicioEps(List<PrestacionServicioIps> prestacioneServicioEps) {
         this.prestacioneServicioEps = prestacioneServicioEps;
     }
 }

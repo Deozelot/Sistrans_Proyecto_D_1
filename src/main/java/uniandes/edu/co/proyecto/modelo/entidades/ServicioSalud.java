@@ -6,7 +6,7 @@ import uniandes.edu.co.proyecto.modelo.enums.TipoServicio;
 import java.util.List;
 
 @Entity
-@Table(name= "ServiciosSalud")
+@Table(name= "Servicios")
 public class ServicioSalud {
 
     @Id
@@ -23,7 +23,7 @@ public class ServicioSalud {
     private List<EPS> epss;
 
     @OneToMany(mappedBy = "servicio")
-    private List<HorarioServicioIPS> horarioServiciosIPSs;
+    private List<HorarioServicioIPS> horariosServiciosIPSs;
 
     @OneToMany(mappedBy = "servicio")
     private List<Orden> ordenes;
@@ -78,11 +78,11 @@ public class ServicioSalud {
     }
 
     public List<HorarioServicioIPS> getHorarioServiciosIPSs() {
-        return horarioServiciosIPSs;
+        return horariosServiciosIPSs;
     }
 
     public void setHorarioServiciosIPSs(List<HorarioServicioIPS> horarioServiciosIPSs) {
-        this.horarioServiciosIPSs = horarioServiciosIPSs;
+        this.horariosServiciosIPSs = horarioServiciosIPSs;
     }
 
     public List<Orden> getOrdenes() {

@@ -18,7 +18,7 @@ public class IPS {
     private Long telefono;
 
     @ManyToMany
-    private List<ServicioSalud> listaServicios;
+    private List<ServicioSalud> servicios;
 
     @ManyToOne
     private EPS eps;
@@ -27,7 +27,7 @@ public class IPS {
     private List<Medico> medicos;
 
     @OneToMany(mappedBy = "ips")
-    private List<HorarioServicioIPS> horarioServicioIPSs;
+    private List<HorarioServicioIPS> horariosServicioIPSs;
 
     public IPS(Long nit, String nombre, String direccion, Long telefono) {
         this.nit = nit;
@@ -71,11 +71,11 @@ public class IPS {
     }
 
     public List<ServicioSalud> getListaServicios() {
-        return listaServicios;
+        return servicios;
     }
 
     public void setListaServicios(List<ServicioSalud> listaServicios) {
-        this.listaServicios = listaServicios;
+        this.servicios = listaServicios;
     }
 
     public EPS getEps() {
@@ -95,10 +95,10 @@ public class IPS {
     }
 
     public List<HorarioServicioIPS> getHorarioServicioIPSs() {
-        return horarioServicioIPSs;
+        return horariosServicioIPSs;
     }
 
     public void setHorarioServicioIPSs(List<HorarioServicioIPS> horarioServicioIPSs) {
-        this.horarioServicioIPSs = horarioServicioIPSs;
+        this.horariosServicioIPSs = horarioServicioIPSs;
     }
 }

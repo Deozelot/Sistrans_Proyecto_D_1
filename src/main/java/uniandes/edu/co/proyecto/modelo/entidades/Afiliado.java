@@ -8,8 +8,10 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Table(name = "Afiliados")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "tipo_afiliado")
+@DiscriminatorValue(value = "contribuyente")
 public class Afiliado {
 
     @Enumerated(value = EnumType.STRING)
@@ -23,22 +25,19 @@ public class Afiliado {
     private String direccion;
     private Long telefono;
 
-    @Enumerated(value = EnumType.STRING)
-    TipoAfiliado tipoAfiliado;
-
     @OneToMany(mappedBy = "contribuyente", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Beneficiario> beneficiarios;
 
     @ManyToOne
     private EPS eps;
 
-    @OneToMany(mappedBy = "afiliado", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<PrestacionServicioEps> prestaciones;
+    @OneToMany(mappedBy = "afiliado")
+    private List<PrestacionServicioIps> prestaciones;
 
-    @OneToMany(mappedBy = "afiliado", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "afiliado")
     private List<Orden> ordenes;
 
-    @OneToMany(mappedBy = "afiliado", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "afiliado")
     private List<CitaServicioIPS> citas;
 
     public Afiliado(TipoDoc tipoDoc, Long numDoc, String nombre, Date fechaNacimiento, String direccion, Long telefono, TipoAfiliado tipoAfiliado) {
@@ -48,7 +47,6 @@ public class Afiliado {
         this.fechaNacimiento = fechaNacimiento;
         this.direccion = direccion;
         this.telefono = telefono;
-        this.tipoAfiliado = tipoAfiliado;
     }
 
     public Afiliado() {
@@ -102,14 +100,6 @@ public class Afiliado {
         this.telefono = telefono;
     }
 
-    public TipoAfiliado getTipoAfiliado() {
-        return tipoAfiliado;
-    }
-
-    public void setTipoAfiliado(TipoAfiliado tipoAfiliado) {
-        this.tipoAfiliado = tipoAfiliado;
-    }
-
     public List<Beneficiario> getBeneficiarios() {
         return beneficiarios;
     }
@@ -126,11 +116,11 @@ public class Afiliado {
         this.eps = eps;
     }
 
-    public List<PrestacionServicioEps> getPrestaciones() {
+    public List<PrestacionServicioIps> getPrestaciones() {
         return prestaciones;
     }
 
-    public void setPrestaciones(List<PrestacionServicioEps> prestaciones) {
+    public void setPrestaciones(List<PrestacionServicioIps> prestaciones) {
         this.prestaciones = prestaciones;
     }
 
