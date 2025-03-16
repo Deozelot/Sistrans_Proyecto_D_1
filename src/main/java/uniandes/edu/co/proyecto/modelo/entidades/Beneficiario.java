@@ -1,7 +1,8 @@
 package uniandes.edu.co.proyecto.modelo.entidades;
 
-import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.ManyToOne;
 import uniandes.edu.co.proyecto.modelo.enums.Parentesco;
 import uniandes.edu.co.proyecto.modelo.enums.TipoAfiliado;
@@ -10,22 +11,21 @@ import uniandes.edu.co.proyecto.modelo.enums.TipoDoc;
 import java.util.Date;
 
 @Entity
-@DiscriminatorValue(value = "beneficiario")
-public class Beneficiario extends Afiliado {
+public class Beneficiario extends Afiliado{
 
-    private Parentesco parentesco;
+    @Enumerated(value = EnumType.STRING)
+    Parentesco parentesco;
 
     @ManyToOne
-    private Afiliado contribuyente;
+    Afiliado contribuyente;
 
-    public Beneficiario(TipoDoc tipoDoc, Long numDoc, String nombre, Date fechaNacimiento, String direccion, Long telefono, TipoAfiliado tipoAfiliado, Parentesco parentesco) {
+    public Beneficiario(TipoDoc tipoDoc, Long numDoc, String nombre, Date fechaNacimiento, String direccion, Long telefono, TipoAfiliado tipoAfiliado, Parentesco parentesco, Afiliado contribuyente) {
         super(tipoDoc, numDoc, nombre, fechaNacimiento, direccion, telefono, tipoAfiliado);
         this.parentesco = parentesco;
+        this.contribuyente = contribuyente;
     }
 
-    public Beneficiario() {
-        super();
-    }
+    public Beneficiario() {}
 
     public Parentesco getParentesco() {
         return parentesco;
